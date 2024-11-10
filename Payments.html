@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>EBMS Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/lightning-bolt.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d@5399.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous" />
+</head>
+
+<body data-bs-theme="lightning-bolt">
+
+    <nav class="main-header">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logoo"><a class="company-name" href="index.html">EBMS</a></label>
+        <ul>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="OurServices.html">Services</a></li>
+            <li><a href="Payments.html">Payments</a></li>
+            <li><a href="AboutUS.html">About Us</a></li>
+            <li><a href="ContactUs.html">Contact</a></li>
+            <li><a href="Login.html" class="login-buttonn">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="checkout-box">
+        <!-- Modal for Payment History and Reports -->
+        <div class="modal fade" id="paymentHistoryModal" tabindex="-1" aria-labelledby="paymentHistoryModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="paymentHistoryModalLabel">Payment History & Usage Reports</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Your Payment History</h4>
+                        <!-- Here you would dynamically insert user data -->
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Bundle Purchased</th>
+                                </tr>
+                            </thead>
+                            <tbody id="payment-history-body">
+                                <tr>
+                                    <td>01/01/2024</td>
+                                    <td>$500</td>
+                                    <td>Paid</td>
+                                    <td>Basic Bundle</td>
+                                </tr>
+                                <tr>
+                                    <td>03/01/2024</td>
+                                    <td>$600</td>
+                                    <td>Paid</td>
+                                    <td>Economy Bundle</td>
+                                </tr>
+                                <!-- Add more rows dynamically -->
+                            </tbody>
+                        </table>
+
+                        <h4>Your Usage Reports</h4>
+                        <p>Below are the usage reports for your active bundles:</p>
+                        <ul>
+                            <li><strong>Basic Bundle</strong> - 5 active tools, 15 GB storage used</li>
+                            <li><strong>Economy Bundle</strong> - 10 active tools, 25 GB storage used</li>
+                            <!-- Add more usage reports here -->
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <!-- Payment Page Row -->
+            <div class="row">
+                <!-- Left side (form) -->
+                <div class="col-lg-8 col-md-12">
+                    <h1>Checkout</h1>
+                    <p>All plans include 40+ advanced tools and features to boost your product. Choose the best plan to
+                        fit your needs.</p>
+
+                    <!-- Payment Methods Section -->
+                    <div class="payment-methods">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="payment" value="credit" id="credit-card"
+                                checked onchange="togglePaymentMethod()">
+                            <label class="form-check-label" for="credit-card">
+                                <i class="fab fa-cc-visa" style="font-size: 50px;"></i>
+                                Credit Card
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="payment" value="paypal" id="paypal"
+                                onchange="togglePaymentMethod()">
+                            <label class="form-check-label" for="paypal">
+                                <i class="fab fa-paypal" style="font-size: 50px;"></i>
+                                Paypal
+                            </label>
+                        </div>
+                    </div>
+
+                    <h2>Billing Details</h2>
+                    <form id="billing-form">
+                        <!-- First Row: Email and Password (side by side using Bootstrap Grid) -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email Address" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password" required>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Second Row: Country and Zip Code (side by side using CSS Grid) -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <select class="form-control" required>
+                                <option value="">Country</option>
+                                <option value="US">Lebanon</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Billing Zip / Postal Code" required>
+                        </div>
+                    </div>
+
+                    <!-- Credit Card Information Section -->
+                    <div id="credit-card-info">
+                        <h3>Credit Card Information</h3>
+                        <form id="credit-card-form">
+                            <!-- Card Number and Cardholder Name Row (using CSS Grid) -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Card Number" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Cardholder Name" required>
+                                </div>
+                            </div>
+
+                            <!-- Expiration Date and CVV (side by side using CSS Grid) -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Expiration Date (MM/YY)"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="CVV" required>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Location Section (Always visible under Billing Details) -->
+                    <div class="location-section mt-4" id="location-section">
+                        <h4>Your Location</h4>
+                        <div class="form-group">
+
+                            <input type="text" id="user-location" class="form-control" placeholder="Enter your location"
+                                required>
+                        </div>
+                        <button type="button" class="btn btn-secondary w-100" onclick="getUserLocation()">Get My
+                            Location</button>
+                    </div>
+
+                </div>
+                <!-- Right Side (Order Summary) -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="order-summary">
+                        <h2>Order Summary</h2>
+                        <p>A simple start for everyone</p>
+
+                        <!-- "Choose Your Bundle" Dropdown -->
+                        <div>
+                            <label for="bundleSelect">Choose Your Bundle</label>
+                            <select class="form-select" id="bundleSelect" onchange="updateBundlePrice()">
+                                <option value="0" selected>Choose a bundle</option>
+                                <option value="500">Basic Bundle - $500/Year</option>
+                                <option value="1000">Standard Bundle - $1000/Year</option>
+                                <option value="600">Economy Bundle - $600/Year</option>
+                                <option value="2000">Premium Bundle - $2000/Year</option>
+                                <option value="3500">Business Bundle - $3500/Year</option>
+                                <option value="6000">Enterprise Bundle - $6000/Year</option>
+                            </select>
+                        </div>
+
+                        <!-- Order Summary Section -->
+                        <p>Subtotal: $<span id="subtotal">0</span></p>
+                        <p>Tax: $<span id="tax">0</span></p>
+                        <p>Total: $<strong><span id="total">0</span></strong></p>
+
+                        <button type="submit" class="btn btn-primary w-100">Proceed with Payment</button>
+                        <p class="terms">
+                            By continuing, you accept our <a href="#">Terms of Service</a> and <a href="#">Privacy
+                                Policy</a>. Please note that payments are non-refundable.
+                        </p>
+                        <div class="modal fade" id="paymentHistoryModal" tabindex="-1"
+                            aria-labelledby="paymentHistoryModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="paymentHistoryModalLabel">Payment History & Usage
+                                            Reports</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h4>Your Payment History</h4>
+                                        <!-- Here you would dynamically insert user data -->
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Amount</th>
+                                                    <th>Status</th>
+                                                    <th>Bundle Purchased</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="payment-history-body">
+                                                <tr>
+                                                    <td>01/01/2024</td>
+                                                    <td>$500</td>
+                                                    <td>Paid</td>
+                                                    <td>Basic Bundle</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>03/01/2024</td>
+                                                    <td>$600</td>
+                                                    <td>Paid</td>
+                                                    <td>Economy Bundle</td>
+                                                </tr>
+                                                <!-- Add more rows dynamically -->
+                                            </tbody>
+                                        </table>
+
+                                        <h4>Your Usage Reports</h4>
+                                        <p>Below are the usage reports for your active bundles:</p>
+                                        <ul>
+                                            <li><strong>Basic Bundle</strong> - 5 active tools, 15 GB storage used</li>
+                                            <li><strong>Economy Bundle</strong> - 10 active tools, 25 GB storage used
+                                            </li>
+                                            <!-- Add more usage reports here -->
+                                        </ul>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <footer class="main-footer">
+
+        <div class="copy-rights">
+            <p class="copy-rights-text">Copyright &copy;2024 EBMS Platform<br>Beirut, Lebanon | Verdun Street</p>
+        </div>
+
+        <div class="social-media">
+            <i class="fa-brands fa-square-whatsapp"></i>
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-square-instagram"></i>
+            <i class="fa-brands fa-square-x-twitter"></i>
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script> <!-- Link to JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

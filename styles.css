@@ -1,0 +1,1027 @@
+* {
+  transition: all 0.1s ease-in-out;
+  box-sizing: border-box; /* Ensures padding and border don't affect layout size */
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  height: 100%;
+}
+
+.main-header {
+  z-index: 100;
+  position: fixed;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(138, 179, 215);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%; /* Ensures the body takes up full height of the viewport */
+}
+
+.main-footer {
+  font-family: 'Itim', sans-serif;
+  background: #0082e6;
+  color: rgb(255, 255, 255);
+  width: 100%;
+  height: 80px;
+  margin-top: auto;  /* Push footer to the bottom */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+@media (max-width: 858px) {
+  .main-footer {
+    height: 140px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .copy-rights {
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0px;
+    margin-top: 20px;
+  }
+  
+  p.copy-rights-text {
+    justify-self: center;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .fa-brands.fa-square-x-twitter {
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .social-media {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .fa-brands {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+
+}
+
+nav {
+  background: #0082e6;
+  height: 80px;
+  width: 100%;
+}
+
+label.logoo {
+  color: white;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+}
+
+.company-name {
+  text-decoration: none;
+  color: white;
+}
+
+.copy-rights {
+  text-wrap: nowrap;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.copy-rights-text {
+  font-family: sans-serif;
+  color: white;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  padding-left: 10px;
+}
+
+.fa-brands {
+  font-size: 30px;
+  padding-left: 10px;
+}
+
+.fa-square-x-twitter {
+  padding-right: 20px;
+}
+
+.social-media {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+}
+
+nav ul {
+  float: right;
+  margin-right: 20px;  
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+}
+
+a.active,a:hover {
+  background: #1b9bff;
+  transition: .5s;
+}
+
+.checkbtn {
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 25px;
+  cursor: pointer;
+  display: none;
+}
+
+#check {
+  display: none;
+}
+
+@media (max-width: 952px) {
+  label.logoo {
+    font-size: 30px;
+    padding-left: 15px;
+  }
+
+  nav ul li a {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 858px) {
+  .checkbtn {
+    display: block;
+  }
+
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 40px 0;
+    line-height: 30px;
+  }
+
+  nav ul li a {
+    font-size: 20px;
+    padding-right: 45px;
+    text-transform: uppercase;
+  }
+
+  a:hover,a.active {
+    background: none;
+    color: #0082e6;
+  }
+
+  #check:checked ~ ul {
+    left: 0;
+  }
+}
+
+/* On medium and smaller screens, adjust layout */
+@media screen and (max-width: 1024px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets and smaller desktops */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* Single column layout on phones */
+  }
+}
+
+/* Add styles for individual items inside the grid */
+.container > .item {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling for all h1, h2, h3, h4, h5 */
+h1, h2, h3, h4, h5 {
+  font-family: 'Orbitron', sans-serif; /* Keep the same font */
+  text-transform: uppercase; /* Optional: you can keep the uppercase style for consistency */
+  font-weight: 600; /* Make headers bold */
+  letter-spacing: 1px; /* Optional: add letter-spacing for a modern look */
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+ color:  #FFD700;
+}
+
+h2{
+  text-align: center;
+}
+
+/* Slider container */
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 80px 0;
+  padding: 0;
+  border-radius: 10px; /* Optional rounded corners for a more modern look */
+}
+
+/* Container for centering and spacing */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Row for items in the slider */
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+/* Styling for individual slider items */
+.item {
+  flex: 1;
+  margin: 0 10px;
+  text-align: center;
+  transition: transform 0.3s ease; /* Smooth transform transition */
+}
+
+.item:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Styling for the title in the slider */
+h3 {
+  margin: 10px 0 5px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333; /* Darker text for better readability */
+}
+
+/* Paragraph text in slider */
+p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  transition: color 0.3s ease; /* Transition color on hover */
+}
+
+.row > .item {
+  min-width: 200px; /* Prevent items from shrinking too much */
+}
+
+/* Slider wrapper for all slides */
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* Individual slide settings */
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* For absolute positioning of the "Read More" button */
+}
+
+/* Image in the slider */
+.slide img {
+  max-width: 100%;
+  height: 350px;
+  margin: 15px 0;
+  object-fit: cover; /* Ensures the image covers the container proportionally */
+  border-radius: 8px;
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+  cursor: pointer; /* Indicate that the image is clickable */
+}
+
+/* Hover effect for images */
+.slide:hover img {
+  transform: scale(1.05); /* Zoom effect when hovering over the image */
+}
+
+/* Optional hover effect on paragraph text */
+.slide:hover p {
+  color: #FFD700; /* Change paragraph text color to yellow when hovered */
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 25px; /* Slightly larger padding for better proportions */
+  background: #f4cd0d; /* Maintain original yellow background */
+  color: white; /* Text color remains white */
+  text-decoration: none;
+  border-radius: 8px; /* More rounded corners for a smoother look */
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 16px; /* Slightly larger text for better readability */
+  border: none; /* Remove border for a cleaner look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  transition: all 0.3s ease-in-out; /* Smooth transition for all properties */
+}
+
+button:hover {
+  background: #000000; /* Black background on hover */
+  color: #f4cd0d; /* Yellow text on hover for contrast */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+button:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 3px rgba(244, 205, 13, 0.5); /* Subtle yellow outline when focused */
+}
+
+/* Contact Section Styling */
+.contact_section {
+  position: relative;
+  padding: 60px 0;
+  color: #FFD700;
+  text-align: center;
+}
+
+/* Heading Styling */
+.contact_section .heading_container {
+  margin-bottom: 45px;
+  font-size: 30px;
+  font-weight: 600;
+  color: #FFD700; /* Gold color for headings to emphasize */
+}
+
+/* Row Styling - Centering form and content */
+.contact_section .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Form Container Styling */
+.contact_section .form_container {
+  padding: 45px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Form Controls - Input Fields */
+.contact_section .form_container .form-control {
+  width: 100%;
+  border: 1px solid #444;
+  height: 50px;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  outline: none;
+  color: #FFD700;
+  background-color: #222;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Placeholder Styling */
+.contact_section .form_container .form-control::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+/* Focus State for Input Fields */
+.contact_section .form_container .form-control:focus {
+  border-color: #FFD700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6); /* Glowing effect */
+  background-color: #333;
+}
+
+/* Textarea Styling (Message Box) */
+.contact_section .form_container .form-control.message-box {
+  height: 120px;
+}
+
+/* Button Box Styling */
+.contact_section .form_container .btn_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Button Styling */
+.contact_section .form_container .btn_box button {
+  border: 1px solid #FFD700;
+  padding: 14px 55px;
+  background-color: #FFD700;
+  color: #1d1d1d;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Button Hover Effect */
+.contact_section .form_container .btn_box button:hover {
+  background-color: transparent;
+  color: #FFD700;
+  border: 1px solid #FFD700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Glowing hover effect */
+}
+
+/* Image Box Styling */
+.contact_section .img-box {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 40px;
+}
+
+/* Image Inside the Box */
+.contact_section .img-box img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effect for Image */
+.contact_section .img-box img:hover {
+  transform: scale(1.05);
+}
+
+
+.about_section {
+  margin-top: 80px;
+  color: #000000;
+}
+
+.checkout-box {
+  margin-top: 80px;
+}
+
+.main-services {
+  margin-top: 80px;
+}
+
+.about_section .heading_container {
+  margin-bottom: 45px;
+}
+.about_section .heading_container h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.about_section .row {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.about_section .img-box {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to image */
+  margin-bottom: 30px;
+}
+
+.about_section .detail-box h3 {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-top: 15px;
+}
+
+.about_section .detail-box p {
+  margin-top: 10px;
+  line-height: 1.6; /* Improve readability */
+}
+
+.about_section .detail-box a {
+  display: inline-block;
+  padding: 10px 45px;
+  background-color: #00bbf0;
+  color: #ffffff;
+  border-radius: 0px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: none;
+  margin-top: 15px;
+}
+
+.about_section .detail-box a:hover {
+  background-color: #007fa4;
+}
+#logoleft {
+  display: flex; /* Use flexbox for logo alignment */
+  align-items: center;
+  margin-left: 1200px;
+  margin-top: -35px; /* Adjust this value to shift it up */
+}
+#logoleft a {
+  color: white; /* Icon color */
+  margin: 0 10px; /* Space between icons */
+  text-decoration: none; /* Remove underline */
+}
+#d1{
+  text-align: center;
+  padding-top: 10px;
+}
+#p1{
+  text-align: center;
+}
+/* General styling for pricing table */
+.pricing-table {
+  margin: 20px auto;
+  max-width: 900px;
+  padding: 30px;
+
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  color: #000000; /* White text for better contrast */
+}
+
+.offer-section {
+  margin: 20px auto;
+  max-width: 900px;
+  padding: 30px;
+ 
+  border-radius: 8px;
+  border: 1px solid #3a4b5b; /* Subtle border for separation */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+/* Apply golden yellow color to all headings */
+.pricing-table h1,
+.pricing-table h2,
+.pricing-table h3,
+.offer-section h1,
+.offer-section h2,
+.offer-section h3,
+.card h1,
+.card h2,
+.card h3,
+.bundle h1,
+.bundle h2,
+.bundle h3 {
+  color: #FFD700; /* Golden yellow */
+}
+
+/* If you want to specifically target just the titles inside pricing table or offer section: */
+.pricing-table h1,
+.pricing-table h2,
+.pricing-table h3 {
+  color: #FFD700;
+}
+
+.offer-section h1,
+.offer-section h2,
+.offer-section h3 {
+  color: #FFD700;
+}
+
+/* Styling for the yearly toggle button */
+.yearly-toggle {
+  display: inline-block;
+  padding: 12px 25px; /* Increased padding for better proportions */
+  background-color: #FFD700; /* Keep the bright yellow */
+  color: black; /* Black text for contrast */
+  font-weight: bold;
+  font-size: 16px; /* Slightly larger text for better readability */
+  border-radius: 25px; /* Rounded corners */
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Smooth transitions */
+  border: none; /* Remove border for a cleaner look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.yearly-toggle:hover {
+  background-color: #000; /* Dark background on hover */
+  color: #FFD700; /* Keep yellow text on hover for contrast */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.yearly-toggle:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 3px rgba(244, 205, 13, 0.5); /* Subtle yellow outline when focused */
+}
+
+
+/* Card design improvements */
+.card {
+  margin: 15px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #495057; /* Dark background for the card */
+  color: #fff; /* White text on dark card */
+  transition: box-shadow 0.3s, transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Glow effect on hover */
+  transform: translateY(-5px); /* Slight lift effect */
+}
+
+.bundle {
+  border: 1px solid #4e5d6c; /* Darker border for better contrast */
+  padding: 25px;
+  margin: 15px 0;
+  text-align: center;
+  background-color: #34495e;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.bundle:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); /* Stronger shadow effect */
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+/* Styling for the subscription button */
+.subscribe-button {
+  background-color: #FFD700; /* Yellow background */
+  color: black;
+  border: none;
+  padding: 14px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 30px; /* Rounded button */
+  transition: background-color 0.3s, transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.subscribe-button:hover {
+  background-color: #000; /* Black background on hover */
+  color: #FFD700; /* Yellow text on black background */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Social media icons styling */
+.social-icons a {
+  margin: 0 12px;
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s, transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  color: #FFD700; /* Yellow on hover */
+  transform: scale(1.1); /* Slightly larger size on hover */
+}
+
+/* Additional responsive design improvements */
+@media (max-width: 768px) {
+  .pricing-table, .offer-section, .card, .bundle {
+    padding: 20px; /* Reduce padding for smaller screens */
+    margin: 10px auto; /* Center and reduce margin */
+  }
+
+  .card, .bundle {
+    text-align: center; /* Ensure text is centered on small screens */
+  }
+
+  .yearly-toggle {
+    padding: 10px 20px; /* Adjust padding */
+    font-size: 16px; /* Slightly smaller font */
+  }
+
+  .subscribe-button {
+    padding: 12px 25px; /* Adjust button size */
+    font-size: 16px; /* Slightly smaller font */
+  }
+
+  .social-icons a {
+    font-size: 16px; /* Smaller icons on mobile */
+  }
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 15px;
+  
+  border-radius: 8px; /* Rounded corners for container */
+}
+
+.col-lg-8, .col-md-12 {
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.payment-methods {
+margin-bottom: 30px;
+display: flex;
+justify-content: center;
+gap: 20px;
+}
+
+.payment-logo {
+width: 25px; /* Slightly bigger logos for better visibility */
+height: 25px;
+margin-right: 8px;
+}
+
+.payment-methods .form-check-label {
+display: flex;
+align-items: center;
+color: #333; /* Darken label text for contrast */
+}
+
+.form-row {
+margin-bottom: 15px;
+padding-left: -70px;
+}
+
+.form-control {
+padding: 12px;
+margin-bottom: 10px;
+border-radius: 6px; /* Rounded corners for form controls */
+border: 1px solid #ccc;
+width: 100%;
+color: black;
+transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth focus transition */
+}
+
+.form-control:focus {
+color: black !important;
+border-color: #FFD700; /* Yellow border on focus */
+box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.3); /* Subtle glow effect */
+}
+
+button.btn-primary {
+background-color: #FFD700; /* Bright yellow */
+color: #000000;
+border-radius: 5px;
+padding: 12px;
+font-size: 16px;
+border: none;
+width: 100%;
+text-align: center;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+button.btn-primary:hover {
+background-color: #f4cd0d; /* Slightly darker yellow on hover */
+transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.terms {
+font-size: 12px;
+text-align: center;
+margin-top: 10px;
+color: #777; /* Lighter gray for terms */
+}
+
+/* Order Summary Styles */
+.order-summary {
+padding: 20px;
+border-radius: 8px;
+border: 1px solid #020202;
+text-align: center;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.order-summary p {
+margin-bottom: 10px;
+}
+
+.order-summary .price {
+font-size: 24px;
+font-weight: bold;
+color: #333;
+}
+
+.order-summary .terms {
+font-size: 12px;
+margin-top: 15px;
+color: #777;
+}
+
+.order-summary .terms a {
+color: #FFD700; /* Yellow color for the link */
+text-decoration: none;
+}
+
+.order-summary .terms a:hover {
+text-decoration: underline;
+}
+
+.order-summary strong {
+font-size: 20px;
+color: #000; /* Ensure strong text is readable */
+}
+
+@media (max-width: 768px) {
+.container {
+    padding: 15px;
+}
+
+.order-summary {
+    margin-top: 20px;
+}
+
+.payment-methods {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-row .col-md-6, .form-row .col-md-8, .form-row .col-md-4 {
+    margin-bottom: 15px;
+}
+}
+
+/* Header Styles */
+h2, h3 {
+color: #FFD700; /* Yellow headers */
+font-weight: bold;
+margin-top: 20px;
+margin-bottom: 15px;
+text-align: center;
+}
+
+#billing-form .form-row {
+margin-bottom: 20px;
+}
+
+/* Button Styling */
+.btn-primary {
+padding: 12px;
+background-color: #FFD700;
+border-color: #000000;
+color: #000000;
+width: 100%;
+text-align: center;
+margin-top: 20px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.btn-primary:hover {
+background-color: #f4cd0d;
+border-color: #f4cd0d;
+transform: translateY(-2px);
+}
+
+.flex-container {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+}
+p{
+  text-align: center;
+}
+.form-row {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+}
+
+.form-row .col-md-6, .form-row .col-md-8, .form-row .col-md-4 {
+flex: 1 1 48%;
+}
+
+
+/* Subtle animations for interactive elements */
+@keyframes fadeIn {
+0% { opacity: 0; }
+100% { opacity: 1; }
+}
+
+.container, .form-control, .order-summary {
+animation: fadeIn 0.5s ease-out;
+}
+
+h4{
+  text-align: center;
+}
+/* Style for the custom checkbox container */
+.custom-toggle {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: #000000;
+  border-radius: 30px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+/* Style for the checkbox itself (hidden) */
+.custom-toggle input[type="checkbox"] {
+  display: none;
+}
+
+/* Style for the label text */
+.toggle-label {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 10px;
+  transition: opacity 0.3s ease;
+}
+
+/* Toggle active state when checkbox is checked */
+.custom-toggle input[type="checkbox"]:checked + .toggle-label {
+  opacity: 0.7; /* Slightly dim the text when the checkbox is checked */
+}
+
+/* Add a visual effect for when the checkbox is hovered */
+.custom-toggle:hover {
+  background-color: #FFD700; /* Lighten up when hovered */
+}
+
+/* For the checkbox "circle" style */
+.custom-toggle input[type="checkbox"]:checked + .toggle-label::before {
+  content: '✔'; /* Checkmark when active */
+  color: #FFD700;
+  margin-right: 10px;
+  font-size: 18px;
+}
+/* Portrait Orientation (default behavior) */
+@media screen and (orientation: portrait) {
+  main {
+    flex-direction: column; /* Stack sections vertically */
+  }
+}
+
+/* Landscape Orientation */
+@media screen and (orientation: landscape) {
+  main {
+    flex-direction: row; /* Display sections side by side */
+  }
+
+  main section {
+    flex: 1 1 48%; /* Allow for two sections to fit side by side */
+  }
+}
+/* Smaller devices */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px; /* Slightly smaller base font size on smaller devices */
+  }
+
+  h1, h2, h3 {
+    font-size: 1.5rem; /* Reduce heading size */
+  }
+}
