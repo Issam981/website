@@ -141,3 +141,7 @@ function updateBundlePrice() {
     var myModal = new bootstrap.Modal(document.getElementById('paymentHistoryModal'));
     myModal.show();
 }
+function toggleMobileNav() {
+  var mobileNav = document.querySelector('.mobile-nav');
+  mobileNav.classList.toggle('active');
+}
